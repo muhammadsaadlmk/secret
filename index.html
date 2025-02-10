@@ -25,32 +25,42 @@
 
     /* Header styling */
     .header {
-      position: absolute;
-      top: 20px;
+      position: fixed;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       color: #ffcc00;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 5px;
+      z-index: 1000;
+      margin-top: 10px;
+      width: 90%; /* Make the header more mobile-friendly */
+      text-align: center;
     }
 
     /* Footer styling */
     .footer {
-      position: absolute;
-      bottom: 10px;
+      position: fixed;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       color: #000000; /* Black color for footer text */
-      font-size: 12px; /* Smaller font for footer */
+      font-size: 14px;
       text-align: center;
+      z-index: 1000;
+      width: 90%;
     }
 
+    /* Middle section */
     .middle {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      color: white;
     }
 
     h1 {
@@ -67,7 +77,7 @@
     }
 
     hr {
-      width: 40%;
+      width: 50%;
       margin: 20px auto;
       border: 1px solid #ffeb3b;
     }
@@ -94,7 +104,7 @@
     /* Styling for the "Happy Birthday Mohsin" message with Great Vibes font */
     .happy-birthday {
       font-family: 'Great Vibes', cursive;
-      font-size: 80px;
+      font-size: 65px; /* Reduced font size here */
       color: #ff0000;
       text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
     }
@@ -106,6 +116,60 @@
       text-align: center;
       margin-top: 5px;
     }
+
+    /* Media queries for responsiveness */
+    @media only screen and (max-width: 768px) {
+      .header {
+        font-size: 24px;
+      }
+
+      .middle h1 {
+        font-size: 40px;
+      }
+
+      .middle p {
+        font-size: 50px;
+      }
+
+      .footer {
+        font-size: 12px;
+      }
+
+      .happy-birthday {
+        font-size: 50px; /* Smaller font size for mobile */
+      }
+
+      hr {
+        width: 70%;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .header {
+        font-size: 18px;
+      }
+
+      .middle h1 {
+        font-size: 30px;
+      }
+
+      .middle p {
+        font-size: 40px;
+      }
+
+      .footer {
+        font-size: 10px;
+      }
+
+      .happy-birthday {
+        font-size: 40px; /* Even smaller font size for mobile */
+      }
+
+      hr {
+        width: 80%;
+      }
+    }
+
   </style>
 </head>
 
@@ -152,11 +216,20 @@
 
     if (distance < 0) {
       clearInterval(countdownfunction);
-      document.getElementById("amx").innerHTML = "<span class='happy-birthday'>Muhammad Saad is Wishing You HAPPY BIRTHDAY Mohsin</span>";
+
+      // Hide the "Wait a moment" text
+      document.querySelector('h1').style.display = 'none';
+      document.getElementById("amx").style.display = 'none';
+
+      // Show the "Happy Birthday" message
+      var happyBirthdayMessage = document.createElement('p');
+      happyBirthdayMessage.classList.add('happy-birthday');
+      happyBirthdayMessage.innerHTML = "Muhammad Saad is Wishing You HAPPY BIRTHDAY Mohsin";
+      document.querySelector('.middle').appendChild(happyBirthdayMessage);
 
       // Adding a delay before the redirect
       setTimeout(function() {
-        window.location = "https://vt.tiktok.com/ZSMdyg8fn/";
+        window.location = "https://www.youtube.com/shorts/3SC-TxA9Rf4";
       }, 3000); // Redirect after 3 seconds
     }
 
